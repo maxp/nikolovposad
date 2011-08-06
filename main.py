@@ -1,33 +1,38 @@
 #!/usr/bin/env python
-#
-# Copyright 2007 Google Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-#
+# -*- coding: utf-8 -*-
+
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp import util
 
-
 class MainHandler(webapp.RequestHandler):
     def get(self):
-        self.response.out.write('Hello world!')
+        self.response.out.write(
+            """
+<!DOCTYPE html>
+<html><head><title>Nikolov Posad village, Irkutsk, Russia</title>
+</head>
+<body style="font: normal 14px Verdana, sans-serif;">
+<div style="text-align: center; margin: 3em 10em;">
+
+<h1>Поселок Николов Посад</h1>
+<br/>Иркутский район
+
+<a href="http://maps.google.com/?ll=52.229823,104.245234&spn=0.014247,0.049739&t=h&z=15"><br/>
+<br/>
+<iframe width="600" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+  src="http://maps.google.com/?ie=UTF8&amp;hq=&amp;hnear=Irkutsk,+Irkutsk+Oblast,+Russia&amp;ll=52.229823,104.245234&amp;spn=0.014247,0.049739&amp;t=h&amp;z=15&amp;output=embed&amp;hl=ru"></iframe>
+</div>
+</body>
+</html>
+            """
+        )
 
 
 def main():
-    application = webapp.WSGIApplication([('/', MainHandler)],
-                                         debug=True)
+    application = webapp.WSGIApplication([('/', MainHandler)], debug=True)
     util.run_wsgi_app(application)
-
 
 if __name__ == '__main__':
     main()
+
+#.
