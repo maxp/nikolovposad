@@ -22,6 +22,10 @@ VirtualEnv Appengine fixes
 
 
 
+    virtualenv --no-site-packages gae
+    cd gae
+    bin/activate
+    easy_install PIL
 
     /opt/google_appengine/google/appengine/tools/dev_appserver.py:
 
@@ -42,3 +46,9 @@ VirtualEnv Appengine fixes
 
     ~virtualenv/lib/python2.6/site-packages/gae.pth:
     /opt/google_appengine
+
+    cd ~virtualenv/bin
+    ln -s /opt/google_appengine/appcgf.py .
+    ln -s /opt/google_appengine/dev_appserver.py .
+
+.
